@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+//<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -24,7 +24,6 @@
   <script src="index.js"></script>
 </html>
 
-<!-- follow up is js code-->
 
 const fruit= document.getElementsByClassName("fruit")
 fruit[2].style.backgroundColor= "yellow";

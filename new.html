@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Fruit Description</title>
+<style>
+    /* Some basic styling for demonstration */
+    form {
+        margin-bottom: 20px;
+    }
+    input[type="text"] {
+        margin-right: 10px;
+    }
+</style>
+</head>
+<body>
+
+<form id="fruitForm">
+    <label for="fruitName">Fruit Name:</label>
+    <input type="text" id="fruitName" name="fruitName">
+    <button type="button" id="addDescriptionBtn">Add Description Input</button>
+    <button type="submit">Submit</button>
+</form>
+
+<!-- Container to display fruit name and description -->
+<div id="fruitInfo"></div>
+
+<script>
+    // Function to add description input before the button
+    function addDescriptionInput() {
+        var descriptionInput = document.createElement('input');
+        descriptionInput.setAttribute('type', 'text');
+        descriptionInput.setAttribute('name', 'fruitDescription');
+        descriptionInput.setAttribute('placeholder', 'Enter fruit description');
+
+        var addButton = document.getElementById('addDescriptionBtn');
+        addButton.parentNode.insertBefore(descriptionInput, addButton);
+    }
+
+    // Function to display fruit name and description
+    function displayFruitInfo() {
+        var fruitName = document.getElementById('fruitName').value;
+        var fruitDescription = document.querySelector('input[name="fruitDescription"]').value;
+
+        // Create paragraph element to display fruit name and description
+        var paragraph = document.createElement('p');
+        paragraph.innerHTML = "<strong>" + fruitName + ":</strong> <em>" + fruitDescription + "</em>";
+
+        // Append paragraph to container
+        document.getElementById('fruitInfo').appendChild(paragraph);
+    }
+
+    // Adding event listeners to buttons
+    document.getElementById('addDescriptionBtn').addEventListener('click', addDescriptionInput);
+    document.getElementById('fruitForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+        displayFruitInfo(); // Call function to display fruit info
+    });
+</script>
+
+</body>
+</html>
